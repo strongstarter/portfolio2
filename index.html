@@ -10,16 +10,18 @@
     />
     <link rel="icon" type="Img/png" href="Img/home-solid.png" 
     />
+    <!-- fontawesome 웹사이스에서 탭의 로고 이미지를 가져오겠다는 뜻.   -->
     <script src="https://kit.fontawesome.com/b71836c940.js" 
     crossorigin="anonymous"
      ></script>  
-     <!-- fontawesome 웹사이스에서 탭의 로고 이미지를 가져오겠다는 뜻.   -->
+     <!-- googlefont에서 폰트를 가져오겠다는 뜻 -->
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,200;0,300;0,600;1,300&display=swap" 
     rel="stylesheet"
     />
+    <!-- css파일을 연결시켜준다.  -->
     <link rel="stylesheet" href="style.css" 
     /> 
-    <!-- css를 링크해준다.  -->
+    <!-- js파일을 연결시켜준다. -->
     <script src="main.js" defer>
     </script> 
     <!-- defer를 이용하는 것은 html파일이 pursing되는 동안 js파일을 동시에 다운로드 받아서 다만 html이 pursing이 
@@ -45,6 +47,7 @@
         </div>
 
     </nav>    
+
     <!-- Home -->
     <section id="home">
         <img 
@@ -56,14 +59,75 @@
         <h2 class="home__description">front and back-end developber equipped with quality assurance view</h2>
         <button class="home__contact">Contact me</button>
     </section>
+
     <!-- About -->
-    <section id="about"></section>
+    <section id="about">
+        <h1>About me</h1>
+        <p>I am Jiyeon Lim working for a pharmaceutical company specialized in therapeutic drug as a quality assuracne associate manager.
+        </p>
+        <div class="about__majors">
+            <div class="major">
+                <div class="major__icon">
+                    <i class="fas fa-pills"></i>
+                </div>
+                <div class="major__title">QA in pharmaceuticals</div>
+                <div class="major__description">
+                    GMP audit, create/ review SOP/ handling of PQC, deviation and change control<br/>
+                    Data Integrity, technical document translation, quality-related interpretation for inspectorates
+                </div>
+            </div>
+        </div>
+        <div class="about__majors">
+            <div class="major">
+                <div class="major__icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="major__title">Front-end</div>
+                <div class="major__description">
+                    HTML, CSS, JavaScript, React
+                </div>
+            </div>
+        </div>
+        <div class="about__majors">
+            <div class="major">
+                <div class="major__icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <div class="major__title">Language experties</div>
+                <div class="major__description">
+                    Korean, English, Japanese
+                </div>
+            </div>
+        </div>
+        <div class="about__jobs">
+            <div class="job">
+                <img 
+                src="img/jobs/Otsuka_Holdings_logo.svg.png" 
+                alt="Otsuka Pharmaceutical" 
+                class="job__logo">
+                <p class="job__name"> Currently working in quality assuance at Otsuka Pharmaceutical</p>
+                <p class="job__period">2015 - present</p>
+            </div>
+            <div class="job">
+                <img 
+                src="img/jobs/hayanmind_pre.png" 
+                alt="Hayanmind" 
+                class="src">
+                <p class="job__name">Translation, proof reading, contents monitoring</p>
+                <p class="job__period">2019 - 2010</p>
+            </div>
+        </div>
+    </section>
+    
     <!-- Skills -->
     <section id="skills"></section>
+
     <!-- Work -->
     <section id="work"></section>
+
     <!-- Testimonials -->
     <section id="tetimonials"></section>
+
     <!-- Contact -->
     <section id="contact"></section>
 
