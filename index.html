@@ -19,8 +19,6 @@
      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" 
      rel="stylesheet" />
 
-    
-    />
     <!-- css파일을 연결시켜준다.  -->
     <link rel="stylesheet" href="style.css" 
     /> 
@@ -33,7 +31,6 @@
 </head>
     
 <body>
-
     <!-- Navbar -->
     <nav id="navbar">
         <div class="navbar__logo">
@@ -65,7 +62,7 @@
     </section>
 
     <!-- About -->
-    <section id="about">
+    <section id="about" class="section">
         <h1>About me</h1>
         <p>I am Jiyeon Lim working for a pharmaceutical company specialized in therapeutic drug as a quality assuracne associate manager.
         </p>
@@ -74,57 +71,57 @@
                 <div class="major__icon">
                     <i class="fas fa-pills"></i>
                 </div>
-                <div class="major__title">Pharma QA</div>
+                <h2 class="major__title">Pharma QA</h2>
                 <div class="major__description">
-                    GMP audit, create/ review SOP/ handling of PQC, deviation and change control<br/>
-                    Data Integrity, technical document translation, quality-related interpretation for inspectorates
+                    GMP, Audit, <br/> SOP, PQC, Deviation <br> Change control
                 </div>
             </div>
-        </div>
-        <div class="about__majors">
             <div class="major">
                 <div class="major__icon">
                     <i class="fas fa-mobile-alt"></i>
                 </div>
-                <div class="major__title">Front-end</div>
+                <h2 class="major__title">Front-end</h2>
                 <div class="major__description">
-                    HTML, CSS, JavaScript, React
+                    HTML, CSS, <br/> JavaScript, React
                 </div>
             </div>
-        </div>
-        <div class="about__majors">
             <div class="major">
                 <div class="major__icon">
                     <i class="fas fa-book-open"></i>
                 </div>
-                <div class="major__title">Languages</div>
+                <h2 class="major__title">Languages</h2>
                 <div class="major__description">
-                    Korean, English, Japanese
+                    Korean, English, <br/> Japanese
                 </div>
             </div>
         </div>
         <div class="about__jobs">
             <div class="job">
                 <img 
-                src="img/jobs/Otsuka_Holdings_logo.svg.png" 
+                src="img/jobs/Otsukapng.png" 
                 alt="Otsuka Pharmaceutical" 
-                class="job__logo">
-                <p class="job__name"> Currently working in quality assuance at Otsuka Pharmaceutical</p>
-                <p class="job__period">2015 - present</p>
+                class="job__logo"
+                />
+                <div class="job__description">
+                    <p class="job__name"> Currently working in quality assuance at Otsuka Pharmaceutical</p>
+                    <p class="job__period">2015 - present</p>
+                </div>
             </div>
             <div class="job">
                 <img 
                 src="img/jobs/hayanmind_pre.png" 
                 alt="Hayanmind" 
-                class="src">
+                class="job__logo">
+                <div class="job__description">
                 <p class="job__name">Translation, proof reading, contents monitoring</p>
                 <p class="job__period">2019 - 2010</p>
+                </div>
             </div>
         </div>
     </section>
     
     <!-- Skills -->
-    <section id="skills">
+    <section id="skills" class="section">
         <h1>Skills</h1>
         <h2>Skills and Attributes</h2>
         <p>Have experinences the whole quality cycles as a GMP quality assurance associate manager in a pharma field. <br/>
@@ -201,7 +198,7 @@
     </section>
 
     <!-- Work -->
-    <section id="work">
+    <section id="work" class="section">
         <h1>My work</h1>
         <h3>Projects</h3>
         <div class="work__categories">
@@ -312,7 +309,7 @@
     </section>
 
     <!-- Testimonials -->
-    <section id="testimonials">
+    <section id="testimonials" class="section">
         <h1>Testimonials</h1>
         <h3>See what they say about me</h3>
         <div class="testimonials">
@@ -349,7 +346,7 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact">
+    <section id="contact" class="section">
         <h1 class="class contact__title">Let's talk</h1>
         <h2 class="contact__email">strongstarter@gmail.com</h2>
         <div class="contact__links">
