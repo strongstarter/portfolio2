@@ -1,54 +1,113 @@
-/*Global*/ 
+/*Global*/
 :root {
-    /* Color */
-    --color-white: 
+  /* Color */
+  --color-navy: #304876;
+  --color-lightNavy: #5472d3;
+  --color-darkNavy: #002171;
 
-    /* Font size */
-    --font-large: 48px;
-    --font-medium: 28px;
-    --font-regular: 18px;
-    --font-small: 16px;
-    --font-micro: 14px;
+  /* Font size */
+  --font-large: 48px;
+  --font-medium: 28px;
+  --font-regular: 18px;
+  --font-small: 16px;
+  --font-micro: 14px;
 
-    /* Font weight */
-    --weight-bold: 700;
-    --weight-semi-bold: 600;
-    --weight-regular: 400;
+  /* Font weight */
+  --weight-bold: 700;
+  --weight-semi-bold: 600;
+  --weight-regular: 400;
 
-    /* Size */
+  /* Size */
+  --size-border-radius: 4px;
 }
 
 /* Universal tags */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-/* Typography */ 
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  cursor: default;
+}
+
+i {
+  color: white;
+}
+
+a {
+  /* 텍스트에 밑줄 그어진 거 없애는 거 */
+  text-decoration: none;
+  color: white;
+}
+
+ul {
+  /* bullet point없애주는 것 */
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Typography */
 /* heding, text에 관한것임 */
 h1 {
-    font-size: font-large;
-    font-weight: var(--weight-bold);
-    color: black;
-    margin: 16px 0;
+  font-size: font-large;
+  font-weight: var(--weight-bold);
+  color: black;
+  margin: 16px 0;
 }
 
 h2 {
-    font-size: var(--font-regular);
-    font-weight: var(--weight-semi-bold);
-    color: black;
-    margin: 8px 0;
+  font-size: var(--font-regular);
+  font-weight: var(--weight-semi-bold);
+  color: black;
+  margin: 8px 0;
 }
 
 h3 {
-    font-size: var(--font-regular);
-    font-weight: var(--font-regular);
-    color: black;
-    margin: 8px 0;
+  font-size: var(--font-regular);
+  font-weight: var(--font-regular);
+  color: black;
+  margin: 8px 0;
 }
 
 p {
-    font-size: var(--font-regular);
-    font-weight: var(--font-regular);
-    color: black;
-    margin: 4px 0;
+  font-size: var(--font-regular);
+  font-weight: var(--font-regular);
+  color: black;
+  margin: 4px 0;
+}
+
+/* Navbar */
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color-navy);
+  align-items: center;
+  padding: 16px;
+}
+
+.navbar__menu {
+  display: flex;
+}
+
+.navbar__logo {
+  font-size: var(--font-medium);
+  font-weight: var(--weight-semi-bold);
+}
+
+.navbar__menu__item {
+  padding: 8px 12px;
+  margin: 0 4px;
+  color: white;
+  cursor: pointer;
+  border-radius: var(--size-border-radius);
+}
+
+.navbar__menu__item.active {
+  border: 1px solid white;
+}
+
+.navbar__menu__item:hover {
+  background-color: var(--color-lightNavy);
 }
