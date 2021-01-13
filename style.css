@@ -1,9 +1,9 @@
 /*Global*/
 :root {
   /* Color */
-  --color-navy: #304876;
-  --color-lightNavy: #5472d3;
-  --color-darkNavy: #002171;
+  --color-navy: #07242e;
+  --color-lightNavy: #6799b4;
+  --color-darkNavy: #092434;
 
   /* Font size */
   --font-large: 48px;
@@ -33,7 +33,7 @@ body {
 }
 
 i {
-  color: white;
+  color: var(--color-lightNavy);
 }
 
 a {
@@ -46,6 +46,13 @@ ul {
   /* bullet point없애주는 것 */
   list-style: none;
   padding-left: 0;
+}
+
+button {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    outline: none;
 }
 
 /* Typography */
@@ -110,4 +117,31 @@ p {
 
 .navbar__menu__item:hover {
   background-color: var(--color-lightNavy);
+}
+
+#home {
+  background: url("img/home/galaxy.jpg") center/ cover no-repeat;
+  padding: 40px;
+  text-align: center;
+}
+
+.home__avatar {
+  width: 250px;
+  height: 280px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.home__title,
+.home__description {
+  color: white;
+}
+
+.home__contact {
+    color: white;
+  font-size: var(--font-regular);
+  font-weight: var(--weight-bold);
+  margin 24px 0;
+  border: 2px solid;
+  border-radius: 4px;
 }
