@@ -33,9 +33,6 @@ body {
   cursor: default;
 }
 
-i {
-    color: var(--color-lightNavy);
-}
 
 a {
   /* 텍스트에 밑줄 그어진 거 없애는 거 */
@@ -107,6 +104,11 @@ p {
   font-weight: var(--weight-semi-bold);
 }
 
+.navbar__logo i {
+    padding-right: 10px;
+    color: var(--color-lightNavy);
+}
+
 .navbar__menu__item {
   padding: 8px 12px;
   margin: 0 4px;
@@ -123,12 +125,20 @@ p {
   background-color: var(--color-lightNavy);
 }
 
-#home {
-  background: url("img/home/galaxy.jpg") center/ cover no-repeat;
-  padding: 40px;
-  text-align: center;
-}
+.navbar__toggle-btn {
+    position: absolute;
+    right: 32px;
+    font-size: 24px;
+    color: white;
+    /* 평소에는 보여지면 안되니까 display:none */
+    display: none;
+}   
 
+#home {
+    background: url("img/home/galaxy.jpg") center/ cover no-repeat;
+    padding: 40px;
+    text-align: center;  
+}
 .home__avatar {
   width: 220px;
   height: 270px;
@@ -449,4 +459,51 @@ category btn이 마우스가 올라왔을 때, 안에있는 category count
     transform: scale(1.1);
     color: rgba(112, 21, 105, 0.897);
     transition: all 300ms ease-in;
+}
+
+/* For below 768 screen width 여기에는 최소한의
+것만 들어야한다. 차이점들만 들어가야한다. 
+e.g. toggle-btn은 html에 이미 들어가 있다. 
+그래서 media query사이즈가 아니면 toggle 버튼을 
+숨겨주는 식으로 해야한다. */
+@media screen and (max-width: 760px) {
+.navbar__toggle-btn {
+    /* 화면이 760px보다 작을 때는 black으로
+    해서 보여주고~ */
+    display: block;
+    top: 20px;
+}
+
+#navbar {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.navbar__menu {
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    display: none;
+    /* toggle버튼을 눌러야 보여져야하므로 display
+    는 none으로 한다. */
+    
+}
+
+.about__majors {
+    flex-direction: column;
+}
+
+.major {
+    margin-bottom: 38px;
+}
+
+.skillset {
+    flex-direction: column;
+}
+
+.project {
+    flex-grow: 1;
+}
+
+
 }
