@@ -96,6 +96,7 @@ p {
   padding: 16px;
   height: 70px;
   transition: all var(--animation-durtaion) ease-in-out;
+  z-index: 1;
 }
 #navbar.navbar--dark {
     background-color: var(--color-darkNavy) ;

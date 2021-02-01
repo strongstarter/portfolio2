@@ -1,7 +1,15 @@
 'use strict'
 
+
+// Make navbar transparent when it is on the top.
+
+
 const navbar = document.querySelector('#navbar');
+
+// element의 height을 받아오는 법 
 const navbarHeight = navbar.getBoundingClientRect().height;
+
+// scroll이 될 때마다 {}안에 등록한 함수를 호출해 줘. 
 document.addEventListener('scroll', () => {
     console.log(window.scrollY);
     console.log(`navbarHeight: ${navbarHeight}` );
@@ -11,3 +19,17 @@ document.addEventListener('scroll', () => {
         navbar.classList.remove('navbar--dark');
     }
 })
+
+// Handle scrolling when tapping on the navbar menu.
+const navbarMenu = document.querySelector('.navbar__menu');
+navbarMenu.addEventListener('click', (event) => {
+    const target = event.target;
+    const link = target.dataset.link;
+    if (link == null) {
+        return;
+    }
+    console.log(event.target.dataset.link);
+    const scrollTo = document.querySelector(link); // link라는 element를 받아와서 
+    scrollTo.scrollIntoView({behavior: "smooth"}); //scrollTO에 scrollIntoView
+    
+});
