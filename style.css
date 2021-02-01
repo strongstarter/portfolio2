@@ -87,12 +87,20 @@ p {
 
 /* Navbar */
 #navbar {
+  position: fixed;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: var(--color-navy);
+  background-color: transparent;
   align-items: center;
   padding: 16px;
   height: 70px;
+  transition: all var(--animation-durtaion) ease-in-out;
+}
+#navbar.navbar--dark {
+    background-color: var(--color-darkNavy) ;
+    padding: 8px;
+    
 }
 
 .navbar__menu {
@@ -134,9 +142,11 @@ p {
     display: none;
 }   
 
+/* Home */
 #home {
     background: url("img/home/galaxy.jpg") center/ cover no-repeat;
     padding: 40px;
+    padding-top: 120px;
     text-align: center;  
 }
 .home__avatar {
@@ -504,6 +514,5 @@ e.g. toggle-btn은 html에 이미 들어가 있다.
 .project {
     flex-grow: 1;
 }
-
 
 }
