@@ -24,12 +24,23 @@ document.addEventListener('scroll', () => {
 const navbarMenu = document.querySelector('.navbar__menu');
 navbarMenu.addEventListener('click', (event) => {
     const target = event.target;
-    const link = target.dataset.link;
+    const link = target.dataset.link; // 이부분 이해 안감
     if (link == null) {
         return;
     }
-    console.log(event.target.dataset.link);
-    const scrollTo = document.querySelector(link); // link라는 element를 받아와서 
-    scrollTo.scrollIntoView({behavior: "smooth"}); //scrollTO에 scrollIntoView
-    
+    //console.log(event.target.dataset.link); //이 부분 이해 안감.  
+    //const scrollTo = document.querySelector(link); // link라는 element를 받아와서 
+    //scrollTo.scrollIntoView({behavior: "smooth"}); //scrollTO에 scrollIntoView
+    scrollIntoView(link);
 });
+
+//  Scrollting to Contact when clicking the "Contact Me" button.
+const ContactMe = document.querySelector('.home__contact');
+ContactMe.addEventListener('click', () => {
+    scrollIntoView('#contact');
+});
+
+function scrollIntoView(selector) {
+    const scrollTo = document.querySelector(selector);
+    scrollTo.scrollIntoView({behavior: "smooth"});
+}
