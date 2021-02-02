@@ -41,14 +41,36 @@ ContactMeBtn.addEventListener('click', () => {
     scrollIntoView('#contact');
 });
 
-function scrollIntoView(selector) {
-    const scrollTo = document.querySelector(selector);
-    scrollTo.scrollIntoView({behavior: "smooth"});
-};
+
+
 
 // Make Home fade out when scrolling down
 const home = document.querySelector('.home__container'); //쿼리셀렉터이용해서 home의 요소를 가져와서~ 
 const homeHeight = home.getBoundingClientRect().height;// getBoundingClient이요해서 홈의 높이를 가져온다. 
 document.addEventListener('scroll', () => {
-    home.style.opacity = 1 - window.scrollY / homeHeight;
+    home.style.opacity = 1 - window.scrollY / homeHeight; //왜 .home__container가 아니라 .home에 있는 요소를 가져오는 것일까
 });
+
+// Show arrow-up button and move it up to the top when clicked.
+
+// Handle click on the "arrow up" button
+const arrowUpBtn = document.querySelector('.arrowUp');
+arrowUpBtn.addEventListener('click', () => {
+    scrollIntoView('#home');
+})
+
+
+document.addEventListener('scroll', () => {
+    if(window.scrollY > homeHeight / 2) {
+        arrowUpBtn.classList.add('visible'); //arrowUpBtn에있는 visible이라는 class를 추가해준다.
+    } else {
+        arrowUpBtn.classList.remove('visible'); // arrowUpBtn에 visible이라는 class를 제거해준다.
+    }
+});
+
+
+
+function scrollIntoView(selector) {
+    const scrollTo = document.querySelector(selector);
+    scrollTo.scrollIntoView({behavior: "smooth"});
+};
