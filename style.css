@@ -380,6 +380,10 @@ category btn이 마우스가 올라왔을 때, 안에있는 category count
     
 }
 
+.project.invisible {
+    display: none;
+}
+
 .project__img {
     max-width: 100%;
     max-height: 100%;
