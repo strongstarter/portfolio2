@@ -79,16 +79,18 @@ workBtnContainer.addEventListener('click', (e) => {
     }
     projectContainer.classList.add('anim-out');
 
-    proejcts.forEach((project) => {
-        console.log(project.dataset.type);
-        if(filter === '*' || filter === project.dataset.type) {
-            project.classList.remove('invisible');
-        } else {
-            project.classList.add('invisible');
-        }
-    });
-    
-})
+    setTimeout(() => {
+        proejcts.forEach((project) => {
+            console.log(project.dataset.type);
+            if(filter === '*' || filter === project.dataset.type) {
+                project.classList.remove('invisible');
+            } else {
+                project.classList.add('invisible');
+            }
+        }); 
+        projectContainer.classList.remove('anim-out'); //p[acoty가 다시 1로 돌아올 수 있도록 anim을
+    }, 300);
+});
 
 
 function scrollIntoView(selector) {

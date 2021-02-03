@@ -20,7 +20,7 @@
   /* Size */
   --size-border-radius: 4px;
 }
- --animation-durtaion: 300ms;
+ 
 
 /* Universal tags */
 * {
@@ -31,6 +31,7 @@ body {
   margin: 0;
   font-family: "Open Sans", sans-serif;
   cursor: default;
+  --animation-durtaion: 300ms;
 }
 
 
@@ -54,6 +55,7 @@ button {
     padding: 10px;
     margin: 10px;
 }
+
 
 /* Typography */
 /* heding, text에 관한것임 */
@@ -364,7 +366,13 @@ category btn이 마우스가 올라왔을 때, 안에있는 category count
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    opacity: 1;
+    transition: all var(--animation-durtaion) ease-out; 
+}
 
+.work__projects.anim-out {
+    opacity: 0.2;
+    transform: scale(0.98) translateY(30px) ;
 }
 
 .project {
