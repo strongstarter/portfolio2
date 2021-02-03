@@ -102,7 +102,7 @@ p {
 }
 #navbar.navbar--dark {
     background-color: var(--color-darkNavy) ;
-    padding: 8px;
+    padding: 16px;
     
 }
 
@@ -325,6 +325,8 @@ p {
 .work__categories {
     margin: 40px;
 }
+
+
 .catetory__btn {
     border: 1px solid lightgrey;
     border-radius: var(--size-border-radius);
@@ -420,7 +422,7 @@ category btn이 마우스가 올라왔을 때, 안에있는 category count
 }
 
 .project__description h3 {
-    color: white;
+    color: orange;
 }
 
 /* after이라는 거 처음 봄 */
@@ -429,9 +431,9 @@ category btn이 마우스가 올라왔을 때, 안에있는 category count
     display: block;
     position: relative;
     left: 50%;
-    width: 25px;
+    width: 50px;
     height: 2px;
-    margin-left: -12px;
+    transform: translateX(-50%);
     margin-top: 8px;
     background-color: white;
 }
@@ -545,6 +547,7 @@ e.g. toggle-btn은 html에 이미 들어가 있다.
 #navbar {
     flex-direction: column;
     align-items: flex-start;
+    background-color: var(--color-darkNavy);
 }
 
 .navbar__menu {
@@ -554,8 +557,18 @@ e.g. toggle-btn은 html에 이미 들어가 있다.
     display: none;
     /* toggle버튼을 눌러야 보여져야하므로 display
     는 none으로 한다. */
+}
+
+.navbar__menu.open {
+    display: block;
+    background-color: var(--color-darkNavy);
     
 }
+
+.navbar__menu__item:hover {
+    
+    background-color: var(--color-lightNavy);
+  }
 
 .about__majors {
     flex-direction: column;
