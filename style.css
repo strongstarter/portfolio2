@@ -125,14 +125,13 @@ p {
   margin: 0 4px;
   color: white;
   cursor: pointer;
+  border: 1px solid transparent;
   border-radius: var(--size-border-radius);
 }
 
-.navbar__menu__item.active {
-  border: 1px solid white;
-}
 
 .navbar__menu__item:hover {
+  border: 1px solid white;
   background-color: var(--color-lightNavy);
 }
 
@@ -334,14 +333,14 @@ p {
     margin: 2px 2px;
 }
 
-.catetory__btn.active,
+.catetory__btn.selected,
 .catetory__btn.tools {
     background-color: rgb(248, 169, 157);
 }
 /* category btn이 active인 상태의 category count와 
 category btn이 마우스가 올라왔을 때, 안에있는 category count
 일 때만 opacity를 1로 하고 ...  */
-.catetory__btn.active .category__count,
+.catetory__btn.selected .category__count,
 .catetory__btn:hover .category__count {
     opacity: 1;
     top: 0;
@@ -350,6 +349,7 @@ category btn이 마우스가 올라왔을 때, 안에있는 category count
 .category__count {
     background-color: orange;
     border-radius: 50%;
+    
     color: whitesmoke; 
     width: 24px; 
     height: 24px; 

@@ -77,6 +77,15 @@ workBtnContainer.addEventListener('click', (e) => {
     if(filter == null) {
         return;
     }
+
+    // 여기 이해 하나도 안감. Let's revisit to learn! 
+    // Remove selection from the previous item and select the new one
+    const active = document.querySelector('.catetory__btn.selected');
+    active.classList.remove('selected');
+    const target = 
+        e.target.nodeName === 'BUTTON' ? e.target : e.target.parentNode;
+    target.classList.add('selected');
+
     projectContainer.classList.add('anim-out');
 
     setTimeout(() => {
