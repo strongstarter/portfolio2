@@ -31,6 +31,7 @@ navbarMenu.addEventListener('click', (event) => {
          return;
         }
 
+      
     
     // console.log(event.target.dataset.link); //이 부분 이해 안감.  
     // const scrollTo = document.querySelector(link); // link라는 element를 받아와서 
@@ -108,7 +109,7 @@ workBtnContainer.addEventListener('click', (e) => {
                 project.classList.add('invisible');
             }
         }); 
-        projectContainer.classList.remove('anim-out'); //p[acoty가 다시 1로 돌아올 수 있도록 anim을
+        projectContainer.classList.remove('anim-out'); //opacity가 다시 1로 돌아올 수 있도록 anim을
     }, 300);
 });
 
