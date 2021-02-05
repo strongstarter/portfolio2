@@ -18,7 +18,8 @@ document.addEventListener('scroll', () => {
     } else {
         navbar.classList.remove('navbar--dark');
     }
-})
+    navbarMenu.classList.remove('open');
+});
 
 
 // Handle scrolling when tapping on the navbar menu.
@@ -36,7 +37,6 @@ navbarMenu.addEventListener('click', (event) => {
     // console.log(event.target.dataset.link); //이 부분 이해 안감.  
     // const scrollTo = document.querySelector(link); // link라는 element를 받아와서 
     // scrollTo.scrollIntoView({behavior: "smooth"}); //scrollTO에 scrollIntoView
-    navbarMenu.classList.remove('open');
     scrollIntoView(link);
 });
 
@@ -44,7 +44,11 @@ navbarMenu.addEventListener('click', (event) => {
 const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
 navbarToggleBtn.addEventListener('click', () => {
     navbarMenu.classList.toggle('open'); // navbarMenu에 클래스에 리스트를 토글 해주도록 하겠음. 토글할클래스는 open.
+    navbar.classList.add('navbar--dark');
+    
 });
+
+
 
 
 //  Scrollting to Contact when clicking the "Contact Me" button.
@@ -118,3 +122,4 @@ function scrollIntoView(selector) {
     const scrollTo = document.querySelector(selector);
     scrollTo.scrollIntoView({behavior: "smooth"});
 };
+    home.style.opacity = 1 - window.scrollY / homeHeight; // 왜 home__container가 아니라 home.일까? 

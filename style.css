@@ -100,8 +100,8 @@ p {
 }
 #navbar.navbar--dark {
     background-color: var(--color-darkNavy) ;
-    padding: 8px;
-    height: 45px;
+    padding: 10px;
+    height: 60px;
 }
 
 
@@ -125,6 +125,10 @@ p {
   color: white;
   cursor: pointer;
   border-radius: var(--size-border-radius);
+}
+
+.navbar__menu__item.active {
+  border: 1px solid white;
 }
 
 .navbar__menu__item:hover {
@@ -206,7 +210,7 @@ p {
 
 .home__contact:hover {
     cursor: pointer;
-    background-color: var(--color-darkNavy);
+    background-color: lightseagreen;
 }
 /* Section common */
 .section {
@@ -262,15 +266,24 @@ p {
 .job__logo {
     width: 120px;
     height: 100px;
-    margin-right: 50px;
+    margin-right: 20px;
     margin-bottom: 30px;
 }
+
+.job__logo1 {
+    width: 200px;
+    height: 100px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+}
+
 .job__name {
-    margin: 0;
+    margin: 0px;
 }
 
 .job__description {
     text-align: left;
+    margin-top: 20px;
 }
 
 .job__period {
@@ -555,6 +568,7 @@ e.g. toggle-btn은 html에 이미 들어가 있다.
     top: 10px;
     right: 16px;
     font-size: medium;
+    cursor: pointer;
 }
 
 #navbar {
