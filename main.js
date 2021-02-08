@@ -38,6 +38,7 @@ navbarMenu.addEventListener('click', (event) => {
     // const scrollTo = document.querySelector(link); // link라는 element를 받아와서 
     // scrollTo.scrollIntoView({behavior: "smooth"}); //scrollTO에 scrollIntoView
     scrollIntoView(link);
+    selectedNavItem(target);
 });
 
 // Navbar toggle button for smaller screen
@@ -118,10 +119,7 @@ workBtnContainer.addEventListener('click', (e) => {
 });
 
 
-function scrollIntoView(selector) {
-    const scrollTo = document.querySelector(selector);
-    scrollTo.scrollIntoView({behavior: "smooth"});
-};
+
     home.style.opacity = 1 - window.scrollY / homeHeight; // 왜 home__container가 아니라 home.일까? 
 
     // 
@@ -146,8 +144,9 @@ function scrollIntoView(selector) {
     // [완료] 1.모든 섹션 요소들과 메뉴아이템들을 가지고 온다.
 
 
-        // 2. [구현] IntersectionObserver를 이용해서 모든 섹션들을 관찰한다.
+    // 2. [구현] IntersectionObserver를 이용해서 모든 섹션들을 관찰한다.
     
+        let selectedNavIndex = 0; //로컬 변수가 아니므로 좀 더 의미있는 이름으로 변경 
         let selectedNavItem = navItems[0];
         function selectNavItem(selected) {
             selectedNavItem.classList.remove('active');
@@ -155,8 +154,13 @@ function scrollIntoView(selector) {
             selectedNavItem.classList.add('active');
         }
 
+        function scrollIntoView(selector) {
+            const scrollTo = document.querySelector(selector);
+            scrollTo.scrollIntoView({behavior: "smooth"});
+            selectNavItem(navItems[sectionIds.indexOf(selector)]); 
+        };
 
-        const observerOptions = {       //option
+        const observerOptions = {       //option 정의하기 
         root: null,
         rootMargin: '0px',
         threshold: 0.3,
@@ -164,24 +168,40 @@ function scrollIntoView(selector) {
     
     const observerCallback = (entries, observer) => { // 함수: entries와 observer라는 인자를 받는 callback함수 
         entries.forEach(entry => { //entries를 빙글빙글 돌면서 우리가 원하는 일들을 해주면 되겠죠~ 
-            if(!entry.isIntersecting && entry.intersectionRatio > 0) {
-                const index = sectionIds.indexOf(`#${entry.target.id}`); //이거 어렵
-                
+            if(!entry.isIntersecting && entry.intersectionRatio > 0) { //entry가빠져나갈 때, entry의 intersectionRatio가 0이상인 경우,
+                const index = sectionIds.indexOf(`#${entry.target.id}`); //이거 어렵 (entry에 있는 target에 있는 id를 가지고 와서)
+                //console.log(index, entry.target.id);
                 //이제는 방향을 찾아야 한다.
-                //-라는 것은 scrolling이 아래로 되어서 페이지가 올라옴 
-                let selectedIndex;
+                //(-)라는 것은 scrolling이 아래로 되어서 페이지가 올라옴 
+                
                 if(entry.boundingClientRect.y < 0) {
-                    selectedIndex = index + 1;
+                    selectedNavIndex = index + 1;
                 } else {
-                    selectedIndex = index - 1; 
+                    selectedNavIndex = index - 1; 
                 }
-              
+                const navItem = navItems[selectedNavIndex];
+                
             }
-        })
-    }
+        });
+    };
     const observer = new IntersectionObserver(observerCallback, observerOptions);  //새로운 observer를 만들어서 intersectionObserver 
 //해당하는 callback과 option을 전달한 다음에 만들어진 observer를 이용해서 각각의 section들을 관찰하는 것이다. 
+// 159가서 option정의하기.165가서 callback함수 만들기. 
 
-// 여기까지 observer를 만들어주었으니, 우리의 section들을 관찰해 주어야 한다! 
 
-sections.forEach(section => observer.observe(section));
+sections.forEach(section => observer.observe(section)); // 여기까지 observer를 만들어주었으니, 우리의 section들을 관찰해 주어야 한다! 
+//sections들을 빙글빙글돌면서 해당하는 section을 observer야 우리꺼 관찰좀 해줘! 
+// 이제 중요한게 남음. callback (165)에 가서 해당하는 섹션을 찾아서 navbar menu를 활성화해 주는 일을 하면 된다. 
+
+// scrolling할 때 sectiond에 맞게 navbar menu에 activated 표시되게 만들기. 
+
+window.addEventListener('wheel', () => { //사용자가 스스로 scroll할 때에는 wheel이라는 이벤트가 발생. 
+    if(window.scrollY === 0) {
+        selectedNavIndex = 0;
+    }else if(
+        window.scrollY + window.innerHeight === document.body.clientHeight) {
+        selectedNavIndex = navItems.length - 1;
+        };
+    selectNavItem(navItems[selectedNavIndex]);
+})
+
