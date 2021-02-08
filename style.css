@@ -171,7 +171,7 @@ p {
 
 /* Home */
 #home {
-    background: url("img/home/galaxy.jpg") center/ cover no-repeat;
+    background: url("Img/home/galaxy.jpg") center/ cover no-repeat;
     padding: 40px;
     padding-top: 120px;
     text-align: center;  
@@ -404,6 +404,7 @@ category btn이 마우스가 올라왔을 때, 안에있는 category count
     justify-content: center;
     opacity: 1;
     transition: all var(--animation-durtaion) ease-out;
+    
 
 }
 
@@ -657,6 +658,20 @@ e.g. toggle-btn은 html에 이미 들어가 있다.
 
 .testimonial__speaach-bubble {
     order: 1; /*기본 order은 0이다. 즉, 0이 가장 먼저 보여짐 */
+}
+
+.contact__links i {
+    transform: scale(1.1);
+    color: rgba(112, 21, 105, 0.897);
+    font-size: 38px;
+}
+
+.contact__links i2 {
+    transform: scale(1.1);
+    color: #2867B2;
+    font-size: 38px;
+}
+
 }
 
 .arrowUp {
