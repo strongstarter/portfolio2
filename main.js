@@ -11,8 +11,8 @@ const navbarHeight = navbar.getBoundingClientRect().height;
 
 // scroll이 될 때마다 {}안에 등록한 함수를 호출해 줘. 
 document.addEventListener('scroll', () => {
-    console.log(window.scrollY);
-    console.log(`navbarHeight: ${navbarHeight}` );
+    // console.log(window.scrollY);
+    // console.log(`navbarHeight: ${navbarHeight}` );
     if(window.scrollY > navbarHeight) {
         navbar.classList.add('navbar--dark'); //여기서 classList는 왜 새로 만들어준거지? 
     } else {
@@ -123,3 +123,64 @@ function scrollIntoView(selector) {
     scrollTo.scrollIntoView({behavior: "smooth"});
 };
     home.style.opacity = 1 - window.scrollY / homeHeight; // 왜 home__container가 아니라 home.일까? 
+
+    // 
+    // 1.[구현]모든 섹션 요소들과 메뉴아이템들을 가지고 온다.
+    // 2. IntersectionObserver를 이용해서 모든 섹션들을 관찰한다.
+    // 3. 보여지는 섹션에 해당하는 메뉴 아이템을 활성화 시킨다. 
+
+    const sectionIds = [ //문자열을 가지고 있는 배열임. section DOM요소로 변환하려면 map이라는 API를 쓴다. 
+        '#home', 
+        '#about',
+        '#skills',
+        '#work', 
+        '#testimonials', 
+        '#contact',
+    ];
+
+    const sections = sectionIds.map(id => document.querySelector(id));
+    const navItems = sectionIds.map(id => document.querySelector(`[data-link="${id}"]`))
+    //``를 쓰고 [] 속성 selector를 선택해서 ${id}정해진 id를 지정해주면 된다. 
+    
+    // [완료] 1.모든 섹션 요소들과 메뉴아이템들을 가지고 온다.
+
+
+        // 2. [구현]IntersectionObserver를 이용해서 모든 섹션들을 관찰한다.
+    
+        let selectedNavItem = navItems[0];
+        function selectNavItem(selected) {
+            selectedNavItem.classList.remove('active');
+            selectedNavItem = selected;
+            selectedNavItem.classList.add('active');
+        }
+
+
+        const observerOptions = {       //option
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.3,
+    }
+    
+    const observerCallback = (entries, observer) => { //entries와 observer라는 인자를 받는 callback함수 
+        entries.forEach(entry => { //entries를 빙글빙글 돌면서 우리가 원하는 일들을 해주면 되겠죠~ 
+            if(!entry.isIntersection && entry.intersectionRatio > 0) {
+                const index = sectionIds.indexOf(`#${entry.target.id}`); //이거 어렵
+                
+                //이제는 방향을 찾아야 한다.
+                //-라는 것은 scrolling이 아래로 되어서 페이지가 올라옴 
+                let selectedIndex;
+                if(entry.boundingClientRect.y < 0) {
+                    selectedIndex = index + 1;
+                } else {
+                    selectedIndex = index - 1; 
+                }
+              
+            }
+        })
+    }
+    const observer = new IntersectionObserver(observerCallback, observerOptions);  //새로운 observer를 만들어서 intersectionObserver 
+//해당하는 callback과 option을 전달한 다음에 만들어진 observer를 이용해서 각각의 section들을 관찰하는 것이다. 
+
+// 여기까지 observer를 만들어주었으니, 우리의 section들을 관찰해 주어야 한다! 
+
+sections.forEach(section => observer.observe(section));
