@@ -125,10 +125,11 @@ function scrollIntoView(selector) {
     home.style.opacity = 1 - window.scrollY / homeHeight; // 왜 home__container가 아니라 home.일까? 
 
     // 
-    // 1.[구현]모든 섹션 요소들과 메뉴아이템들을 가지고 온다.
+    // 1.모든 섹션 요소들과 메뉴아이템들을 가지고 온다.
     // 2. IntersectionObserver를 이용해서 모든 섹션들을 관찰한다.
     // 3. 보여지는 섹션에 해당하는 메뉴 아이템을 활성화 시킨다. 
 
+    // 1.[구현]모든 섹션 요소들과 메뉴아이템들을 가지고 온다.
     const sectionIds = [ //문자열을 가지고 있는 배열임. section DOM요소로 변환하려면 map이라는 API를 쓴다. 
         '#home', 
         '#about',
@@ -145,7 +146,7 @@ function scrollIntoView(selector) {
     // [완료] 1.모든 섹션 요소들과 메뉴아이템들을 가지고 온다.
 
 
-        // 2. [구현]IntersectionObserver를 이용해서 모든 섹션들을 관찰한다.
+        // 2. [구현] IntersectionObserver를 이용해서 모든 섹션들을 관찰한다.
     
         let selectedNavItem = navItems[0];
         function selectNavItem(selected) {
@@ -161,9 +162,9 @@ function scrollIntoView(selector) {
         threshold: 0.3,
     }
     
-    const observerCallback = (entries, observer) => { //entries와 observer라는 인자를 받는 callback함수 
+    const observerCallback = (entries, observer) => { // 함수: entries와 observer라는 인자를 받는 callback함수 
         entries.forEach(entry => { //entries를 빙글빙글 돌면서 우리가 원하는 일들을 해주면 되겠죠~ 
-            if(!entry.isIntersection && entry.intersectionRatio > 0) {
+            if(!entry.isIntersecting && entry.intersectionRatio > 0) {
                 const index = sectionIds.indexOf(`#${entry.target.id}`); //이거 어렵
                 
                 //이제는 방향을 찾아야 한다.
