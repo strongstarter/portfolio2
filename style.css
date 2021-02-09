@@ -595,6 +595,7 @@ e.g. toggle-btn은 html에 이미 들어가 있다.
 .navbar__menu.open {
     display: block;
     background-color: var(--color-darkNavy);
+    font-size: small;
 }
 
 .home__avatar {
