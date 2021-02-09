@@ -566,7 +566,7 @@ e.g. toggle-btn은 html에 이미 들어가 있다.
     /* 화면이 760px보다 작을 때는 block으로
     해서 보여주고~ */
     display: block;
-    top: 10px;
+    top: 13px;
     right: 16px;
     font-size: medium;
     cursor: pointer;
@@ -575,6 +575,12 @@ e.g. toggle-btn은 html에 이미 들어가 있다.
 #navbar {
     flex-direction: column;
     align-items: flex-start;
+}
+
+#navbar.navbar--dark {
+    background-color: var(--color-darkNavy) ;
+    padding: 10px;
+    height: 50px;
 }
 
 .navbar__menu {
