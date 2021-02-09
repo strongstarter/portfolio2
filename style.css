@@ -346,7 +346,7 @@ p {
 }
 
 .etc {
-    
+    height: 250px;
     background-color: lightslategray;
     margin: 0;
 }
